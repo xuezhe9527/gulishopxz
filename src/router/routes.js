@@ -27,7 +27,7 @@ export default
       path:'/search/:keyword?',  //设置可传可不传params参数
       component:Search,
       name:"search",
-      props:route=>({keyword:route.params.keyword,keyword1:route.query.keyword1})
+      // props:route=>({keyword:route.params.keyword,keyword1:route.query.keyword1})//测试用
     },
     {
       path:'/',

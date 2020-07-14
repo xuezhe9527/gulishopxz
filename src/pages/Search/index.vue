@@ -1,9 +1,9 @@
 <template>
   <div>
-    Search <br>
+    <!-- Search <br>
     params参数为：{{keyword}} <br>
-    query参数为：{{keyword1}}
-
+    query参数为：{{keyword1}} 测试用--> 
+    <TypeNav></TypeNav>
   </div>
 </template>
     
