@@ -126,7 +126,7 @@ export default {
       //判断categoryname是否有值
       // 有值的话说明是a，则创建location和query
       // 再往query里面添加四个值 ,把query放到location里面
-      // 最后再发送
+      // 最后再发送lllll
       if (categoryname) {
         let location = {
           name: "search"
