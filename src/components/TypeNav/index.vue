@@ -109,7 +109,7 @@ export default {
         this.currentIndex = index;
       },
       50,
-      { trailing: false }
+      { trailing: false } //设置最后一次是否延迟触发
     ),
 
     moveOut() {
