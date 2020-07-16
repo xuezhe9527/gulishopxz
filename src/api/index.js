@@ -13,4 +13,4 @@ export const reqFloorList = () => mockAjax.get('/floor') //已经配置过baseUr
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(22222)
+// console.log(2222233)
