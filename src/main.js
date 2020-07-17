@@ -11,12 +11,16 @@ import SlideLoop from '@/components/SlideLoop'
 // console.log(API)
 // API.reqBannerList()
 // API.reqFloorList()
+// API.reqGoodsList({})
 
 Vue.component('TypeNav',TypeNav)
 Vue.component('SlideLoop',SlideLoop)
 Vue.config.productionTip = false
 
-new Vue({
+new Vue({ 
+  beforeCreate() {
+    Vue.prototype.$bus = this
+  },
   el:'#app',
   render: h => h(App),
   router,
