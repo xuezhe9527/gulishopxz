@@ -23,7 +23,7 @@ VueRouter.prototype.push = function(location,onResolved,onRejected){
 VueRouter.prototype.replace = function(location,onResolved,onRejected){
   if(onResolved === undefined && onRejected === undefined){
     // originPush.call目的是让VueRouter实例化对象去调用‘
-    //如果不加，那就是window在调用
+    //如果不加，那就是window在调用了了呀
     return originReplace.call(this,location).catch(() => {})
   }else{
     return originReplace.call(this,location,onResolved,onRejected)
