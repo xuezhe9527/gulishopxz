@@ -148,7 +148,13 @@ export default {
         if (params) {
           location.params = params;
         }
-        this.$router.push(location);
+        //不应该直接push，要先判断下是否是从home到search，是，则push  否则replace
+        // this.$router.push(location);
+        if(this.$route.path !== '/home'){
+          this.$router.replace(location);
+        }else{
+          this.$router.push(location);
+        }
       }
     }
   },

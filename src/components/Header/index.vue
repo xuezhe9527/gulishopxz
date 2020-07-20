@@ -54,7 +54,7 @@ export default {
     };
   },
   mounted(){
-    this.$bus.$on("clearKeyword",this.clearKeyword)
+    this.$bus.$on("clearKeyword",this.clearKyuheyword)
     
   },
   methods: {
@@ -81,7 +81,12 @@ export default {
         location.query = query;
       }
 
-      this.$router.push(location);
+      // this.$router.push(location);
+      if(this.$route.path !== '/home'){
+          this.$router.replace(location);
+        }else{
+          this.$router.push(location);
+        }
     },
     clearKeyword(){
       this.keyword = ''
