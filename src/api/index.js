@@ -17,4 +17,4 @@ export const reqGoodsList = (searchParams) => Ajax.post('/list',searchParams)
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(2222233)
+// console.log(22222334)
