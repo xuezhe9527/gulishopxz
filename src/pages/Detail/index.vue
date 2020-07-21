@@ -87,7 +87,7 @@
                 <a href="javascript:" class="mins" @click="skuNum<=1?1:skuNum--">-</a>
               </div>
               <div class="add">
-                <a href="javascript:">加入购物车</a>
+                <a href="javascript:;" @click="toSuccess">加入购物车</a>
               </div>
             </div>
           </div>
@@ -349,7 +349,25 @@ export default {
         item.isChecked = "0";
       });
       attrValueList[index].isChecked = "1";
+    },
+    async toSuccess(){
+      //先发请求，判定是否成功
+      //调用我们actions内部的异步函数（async）,这个调用的返回值一定是一个promise
+      try {
+        const result = await this.$store.dispatch('addorUpdateShopCart',{skuId:this.skuInfo.id,skuNum:this.skuNum})
+        alert(result)
+        //在添加成功跳转到添加成功页面之前，把相应的商品存储在sessionStorage当中，用来在添加成功页面去使用
+        sessionStorage.setItem('SKUINFO_KEY',JSON.stringify(this.skuInfo))
+
+        this.$router.push(`/addcartsuccess?skuNum=${this.skuNum}`)  //如果添加购物车成功，那么就跳转到添加购物车成功的页面
+      } catch (error) {
+        alert(error.message)
+      }
+      
+      //成功
+      //失败
     }
+
   },
   computed: {
     ...mapGetters(["categoryView", "skuInfo", "spuSaleAttrList", "imgList"])
