@@ -21,4 +21,4 @@ export const reqGoodsDetailInfo = (skuId) => Ajax.get(`/item/${skuId}`)
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(22222334)
+// console.log(22222334777)
