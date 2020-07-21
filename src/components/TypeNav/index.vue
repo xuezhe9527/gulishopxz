@@ -4,7 +4,7 @@
     <div class="container">
       <div @mouseleave="moveOut()" @mouseenter="isShow=true">
         <h2 class="all">全部商品分类</h2>
-        <transition name="show">
+        <!-- <transition name="show"> -->
           <div class="sort" v-show="isShow">
             <div class="all-sort-list2" @click="toSearch">
               <div
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-        </transition>
+        <!-- </transition> -->
       </div>
       <nav class="nav">
         <a href="###">服装城</a>
@@ -88,7 +88,7 @@ export default {
   mounted() {
     // this.getCategoryList();  //放到App里面,避免因为组件销毁和创建时重新mounted
     //挂在好就要判断下当前路由是否时home是的话显示sort 否则隐藏
-    if (this.$route.path === "/search") {
+    if (this.$route.path !== "/home") {
       this.isShow = false;
     }
   },
@@ -115,7 +115,7 @@ export default {
     moveOut() {
       this.currentIndex = -1;
       //在search页面,鼠标移除时要隐藏sort
-      if (this.$route.path === "/search") {
+      if (this.$route.path !== "/home") {
         this.isShow = false;
       }
     },

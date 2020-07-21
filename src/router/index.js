@@ -30,5 +30,9 @@ VueRouter.prototype.replace = function(location,onResolved,onRejected){
   }
 }
 export default new VueRouter({
-  routes
+  routes,
+  //设置滚动行为的初始位置在左上角
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
