@@ -23,4 +23,4 @@ export const reqAddOrUpdateShopCart = (skuId,skuNum) => Ajax.post(`/cart/addToCa
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(22222334)
+// console.log(222223348)
