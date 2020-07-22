@@ -1,6 +1,7 @@
 import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import store from '@/store'
 
 const service = axios.create({
   baseURL: '/api',
@@ -10,6 +11,12 @@ const service = axios.create({
 //请求拦截器
 service.interceptors.request.use(config => {
   NProgress.start()
+  //每次请求都要带上userid
+  let userTempId = store.state.user.userTempId
+  console.log(userTempId);
+  if(userTempId){
+    config.headers.userTempId = userTempId
+  }
   return config
 })
 

@@ -4,9 +4,14 @@ import Register from '@/pages/Register'
 import Search from '@/pages/Search'
 import Detail from '@/pages/Detail'
 import AddCartSuccess from '@/pages/AddCartSuccess'
+import ShopCart from '@/pages/ShopCart'
 
 export default 
   [
+    {
+      path:'/shopcart',
+      component:ShopCart
+    },
     {
       path:'/addcartsuccess',
       component:AddCartSuccess
