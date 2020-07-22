@@ -42,4 +42,4 @@ export const reqLoginOut = () => Ajax.get('/user/passport/logout')
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(2222233489)
+// console.log(222223348910)
