@@ -19,13 +19,25 @@ export const reqGoodsList = (searchParams) => Ajax.post('/list', searchParams)
 export const reqGoodsDetailInfo = (skuId) => Ajax.get(`/item/${skuId}`)
 
 //请求添加购物车  /api/cart/addToCart/{ skuId }/{ skuNum }    post
-export const reqAddOrUpdateShopCart = (skuId,skuNum) => Ajax.post(`/cart/addToCart/${ skuId }/${ skuNum }`)
+export const reqAddOrUpdateShopCart = (skuId, skuNum) => Ajax.post(`/cart/addToCart/${skuId}/${skuNum}`)
 
 //请求购物车列表数据  /api/cart/cartList  get
 export const reqShopCartList = () => Ajax.get('./cart/cartList')
 
 //请求修改购物车选中状态 /api/cart/checkCart/{skuID}/{isChecked}  get
-export const reqUpdateIsChecked = (skuID,isChecked) => Ajax.get(`/cart/checkCart/${skuID}/${isChecked}`)
+export const reqUpdateIsChecked = (skuID, isChecked) => Ajax.get(`/cart/checkCart/${skuID}/${isChecked}`)
+
+//删除购物车单个商品 /api/cart/deleteCart/{skuId}
+export const reqDeleteCart = (skuId) => Ajax.delete(`/cart/deleteCart/${skuId}`)
+
+//注册用户 /api/user/passport/register   post
+export const reqRegister = (userInfo) => Ajax.post('/user/passport/register', userInfo)
+
+//用户登录 /api/user/passport/login post
+export const reqLogin = (userInfo) => Ajax.post('/user/passport/login', userInfo)
+
+//用户退出登录 /api/user/passport/logout  get
+export const reqLoginOut = () => Ajax.get('/user/passport/logout')
 
 //简单测试
 // console.log(11111)

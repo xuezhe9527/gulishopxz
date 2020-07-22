@@ -44,7 +44,7 @@
             <span class="sum">{{cart.skuNum * cart.skuPrice*1}}</span>
           </li>
           <li class="cart-list-con7">
-            <a href="javascript:;" class="sindelet">删除</a>
+            <a href="javascript:;" class="sindelet" @click="deleteOneCart(cart)">删除</a>
             <br />
             <a href="javascript:;">移到收藏</a>
           </li>
@@ -57,7 +57,7 @@
         <span>全选</span>
       </div>
       <div class="option">
-        <a href="javascript:;">删除选中的商品</a>
+        <a href="javascript:;" @click="deleteChecked">删除选中的商品</a>
         <a href="javascript:;">移到我的关注</a>
         <a href="javascript:;">清除下柜商品</a>
       </div>
@@ -73,7 +73,8 @@
           <i class="summoney">{{allMoney}}</i>
         </div>
         <div class="sumbtn">
-          <a class="sum-btn" href="###" target="_blank">结算</a>
+          <!-- <a class="sum-btn" href="###" target="_blank">结算</a> -->
+          <router-link to="/trade" class="sum-btn">结算</router-link>
         </div>
       </div>
     </div>
@@ -117,6 +118,24 @@ export default {
       } catch (error) {
         alert(error.message);
       }
+    },
+    //删除单个购物车商品
+    async deleteOneCart(cart){
+      try {
+        await this.$store.dispatch('deleteShopCart',cart.skuId)
+        this.getShopCartList()
+      } catch (error) {
+        alert(error.message)
+      }
+    },
+    //删除所有选中的购物车的商品
+    async deleteChecked(){   
+      try {
+         await this.$store.dispatch('deleteCheckedCart')
+         this.getShopCartList()
+      } catch (error) {
+        alert(error.message)
+      }
     }
   },
   computed: {
@@ -143,7 +162,7 @@ export default {
     },
     isAllChecked: {
       get() {
-        return this.shopCartList.every(item => item.isChecked === 1);
+        return this.shopCartList.every(item => item.isChecked === 1) && this.shopCartList.length >0;
       },
       async set(val) {
         try {

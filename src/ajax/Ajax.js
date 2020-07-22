@@ -11,11 +11,17 @@ const service = axios.create({
 //请求拦截器
 service.interceptors.request.use(config => {
   NProgress.start()
-  //每次请求都要带上userid
+  //每次请求都要带上userTempid
   let userTempId = store.state.user.userTempId
   console.log(userTempId);
   if(userTempId){
     config.headers.userTempId = userTempId
+  }
+
+  //让每次请求都带上token
+  let token = store.state.user.userInfo.token
+  if(token){
+    config.headers.token = token
   }
   return config
 })
