@@ -30,4 +30,4 @@ export const reqUpdateIsChecked = (skuID,isChecked) => Ajax.get(`/cart/checkCart
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(222223348)
+// console.log(2222233489)
