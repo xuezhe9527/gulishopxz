@@ -29,7 +29,8 @@ const actions = {
     const result = await reqLogin(userInfo)
     if(result.code===200){
       commit('RECEIVEUSERINFO',result.data)
-      localStorage.setItem("USERINFO_KEY",JSON.stringify(result.data))
+      localStorage.setItem("USERINFO_KEY",JSON.stringify(result
+        .data))
       return "登陆成功"
     }else{
       return Promise.reject(new Error("登陆失败"))

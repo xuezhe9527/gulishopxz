@@ -13,7 +13,7 @@ service.interceptors.request.use(config => {
   NProgress.start()
   //每次请求都要带上userTempid
   let userTempId = store.state.user.userTempId
-  console.log(userTempId);
+  // console.log(userTempId);
   if(userTempId){
     config.headers.userTempId = userTempId
   }
