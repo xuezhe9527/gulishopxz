@@ -53,4 +53,4 @@ export const reqPayStatus = (orderId) => Ajax.get(`/payment/weixin/queryPayStatu
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(222223348910)
+// console.log(22222334891011)
