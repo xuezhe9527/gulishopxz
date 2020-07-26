@@ -6,8 +6,14 @@ import store from '@/store'
 import  '@/mock/mockServer' //这样引入后，原有的方法中的console就可以执行，但是没有数据
 import * as API from '@/api'
 import SlideLoop from '@/components/SlideLoop'
-import Pagination from '@/components/Pagination'
-import {MessageBox,Message} from 'element-ui'
+import loading from '@/assets/images/loading.gif'
+import VueLazyLoad from 'vue-lazyload'
+import '@/validate'
+// import Pagination from '@/components/Pagination'  暂时先关闭我们自己的分页器
+import {MessageBox,Message,Pagination} from 'element-ui'
+Vue.use(Pagination) //使用elementui的分页插件
+
+Vue.use(VueLazyLoad,{loading})
 
 
 Vue.prototype.$msgbox = MessageBox;

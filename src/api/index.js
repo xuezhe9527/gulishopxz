@@ -50,6 +50,9 @@ export const reqOrderInfo = (orderId) => Ajax.get(`/payment/weixin/createNative/
 
 //查看订单的支付情况 /api/payment/weixin/queryPayStatus/{orderId}
 export const reqPayStatus = (orderId) => Ajax.get(`/payment/weixin/queryPayStatus/${orderId}`)
+
+//请求获取我的订单分页信息 /api/order/auth/{page}/{limit}    GET
+export const reqMyOrder = (page,limit) =>Ajax.get(`/order/auth/${page}/${limit} `)
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());

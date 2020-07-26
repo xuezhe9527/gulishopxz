@@ -1,4 +1,7 @@
-import Home from '@/pages/Home'
+//路由懒加载方式（优点：1单独打包，2.动态加载（需要时再加载））
+const Home = () =>import('@/pages/Home')  //结果是一个函数
+//webpack默认导入方式，整体打包
+// import Home from '@/pages/Home'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import Search from '@/pages/Search'
@@ -8,9 +11,31 @@ import ShopCart from '@/pages/ShopCart'
 import Trade from '@/pages/Trade'
 import Pay from '@/pages/Pay'
 import PaySuccess from '@/pages/PaySuccess'
+import Center from '@/pages/Center'
+import MyOrder from '@/pages/Center/MyOrder'
+import GroupOrder from '@/pages/Center/GroupOrder'
 
+import store from '@/store'
 export default 
   [
+    {
+      path:'/center',
+      component:Center,
+      children:[
+        {
+          path:'myorder',
+          component:MyOrder,
+        },
+        {
+          path:'grouporder',
+          component:GroupOrder,
+        },
+        {
+          path:'',
+          redirect:'myorder',
+        },
+      ]
+    },
     {
       path:'/pay',
       component:Pay
@@ -44,7 +69,15 @@ export default
       component:Login,
       meta:{
         isHide:true
-      }
+      },
+      //未登录的才可以看到登录页面，已经登陆的不可以看到，所以加一个路由独享守卫 //也可以在组件内部使用组件内守卫(但不能this，因为还没有创建出来，可以用vm代替)
+      // beforeEnter: (to, from, next) => {
+      //   if(!store.state.user.userInfo.name){
+      //     next()
+      //   }else{
+      //     next('/')
+      //   }
+      // }
     },
     {
       path:'/register',
