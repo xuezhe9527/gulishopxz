@@ -56,4 +56,4 @@ export const reqMyOrder = (page,limit) =>Ajax.get(`/order/auth/${page}/${limit} 
 //简单测试
 // console.log(11111)
 // console.log(reqBanner());
-// console.log(22222334891011)
+// console.log(2222233489101112)
