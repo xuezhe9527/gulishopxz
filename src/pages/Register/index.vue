@@ -41,7 +41,7 @@
       <div class="content">
         <label>登录密码:</label>
         <!-- <input type="text" placeholder="请输入你的登录密码" v-model="password" />
-        <span class="error-msg">错误提示信息</span> -->
+        <span class="error-msg">错误提示信息</span>-->
         <input
           v-model="password"
           name="password"
@@ -53,7 +53,7 @@
       <div class="content">
         <label>确认密码:</label>
         <!-- <input type="text" placeholder="请输入确认密码" v-model="password2" />
-        <span class="error-msg">错误提示信息</span> -->
+        <span class="error-msg">错误提示信息</span>-->
         <input
           v-model="password2"
           name="password2"
@@ -65,7 +65,7 @@
       <div class="controls">
         <!-- <input name="m1" type="checkbox" />
         <span>同意协议并注册《尚品汇用户协议》</span>
-        <span class="error-msg">错误提示信息</span> -->
+        <span class="error-msg">错误提示信息</span>-->
         <input
           type="checkbox"
           v-model="ischeck"
@@ -108,13 +108,15 @@ export default {
       code: "",
       password: "",
       password2: "",
-      ischeck:''
+      ischeck: false,
     };
   },
   methods: {
     async register() {
-      let { mobile, code, password, password2 } = this;
-      if (mobile && code && password && password2 && password === password2) {
+      const success = await this.$validator.validateAll();
+      if (success) {
+        let { mobile, code, password, password2 } = this;
+        // if (mobile && code && password && password2 && password === password2) {
         let userInfo = { mobile, code, password };
         console.log(userInfo);
         try {
@@ -125,6 +127,7 @@ export default {
         } catch (error) {
           alert(error.message);
         }
+        // }
       }
     },
     changeCode() {
