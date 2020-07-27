@@ -1,6 +1,12 @@
 <template>
   <ul>
-    <li v-for="(item, index) in data" :key="index">{{item.text}}</li>
+    <li v-for="(todo, index) in todos" :key="todo.id">
+      <slot :todo="todo" :index="index">
+          {{todo.text}}
+      </slot>
+
+
+    </li>
   </ul>
 </template>
 
@@ -8,7 +14,7 @@
 export default {
   name: 'List',
   props: {
-    data: Array
+    todos: Array
   }
 }
 </script>

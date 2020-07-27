@@ -10,8 +10,10 @@ import loading from '@/assets/images/loading.gif'
 import VueLazyLoad from 'vue-lazyload'
 import '@/validate'
 // import Pagination from '@/components/Pagination'  暂时先关闭我们自己的分页器
-import {MessageBox,Message,Pagination} from 'element-ui'
+import {MessageBox,Message,Pagination,Input,Button} from 'element-ui'
 Vue.use(Pagination) //使用elementui的分页插件
+Vue.use(Input) 
+Vue.use(Button) 
 
 Vue.use(VueLazyLoad,{loading})
 

@@ -1,15 +1,15 @@
 <template>
   <div>
     <h2>BABA有存款: {{money}}</h2>
-    <button>找小明借钱100</button><br>
-    <button>找小红借钱150</button><br>
-    <button>找所有孩子借钱200</button><br>
+    <button @click="borrowMoneyFromXM(100)">找小明借钱100</button><br>
+    <button @click="borrowMoneyFromXH(200)">找小红借钱150</button><br>
+    <button @click="borrowMoneyFromAll(200)">找所有孩子借钱200</button><br>
     
     <br>
-    <Son />
+    <Son ref="son"/>
 
     <br>
-    <Daughter />
+    <Daughter ref="dau" />
   </div>
 </template>
 
@@ -26,7 +26,20 @@ export default {
   },
 
   methods: {
-    
+    borrowMoneyFromXM(money){
+      this.money += money
+      this.$refs.son.money-=money
+    },
+    borrowMoneyFromXH(money){
+      this.money += money
+      this.$refs.dau.money-=money
+    },
+    borrowMoneyFromAll(money){
+      this.money += money*2
+      this.$children.forEach(item=>{
+        item.money -= money
+      })
+    }
   },
 
   components: {
